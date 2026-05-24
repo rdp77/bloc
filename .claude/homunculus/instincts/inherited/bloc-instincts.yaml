@@ -1,0 +1,585 @@
+# Instincts generated from https://github.com/rdp77/bloc
+# Generated: 2026-05-24T20:05:28.796Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: bloc-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: chore, refactor, docs, feat, fix
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix(hydrated_bloc): make `defaultOnHydrationError` public, chore(hydrated_bloc): v10.1.1
+
+---
+id: bloc-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Commit Length
+
+## Action
+
+Write moderate-length commit messages (~51 characters)
+
+## Evidence
+
+- Average commit message length: 51 chars
+- Based on 100 commits
+
+---
+id: bloc-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: bloc-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: bloc-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: bloc-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: bloc-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: bloc-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: docs/src/components/lint-rules/avoid_build_context_extensions/*, docs/src/components/lint-rules/prefer_file_naming_conventions/*, docs/src/components/lint-rules/prefer_build_context_extensions/*
+
+---
+id: bloc-workflow-package-release-version-bump
+trigger: "when doing package release version bump"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Package Release Version Bump
+
+## Action
+
+Follow the package-release-version-bump workflow:
+1. Update the CHANGELOG.md with release notes.
+2. Update the pubspec.yaml (or package.json/build.gradle.kts) with the new version.
+3. Optionally update README.md or version.dart (for Dart packages).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/*/CHANGELOG.md, packages/*/pubspec.yaml, packages/*/README.md
+
+---
+id: bloc-workflow-add-or-update-lint-rule
+trigger: "when doing add or update lint rule"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Add Or Update Lint Rule
+
+## Action
+
+Follow the add-or-update-lint-rule workflow:
+1. Implement or update the rule in lib/src/rules/ and lib/src/rules/rules.dart.
+2. Update all.yaml, recommended.yaml, and bloc_lint.dart to register the rule.
+3. Add or update tests in test/src/rules/.
+4. Update README.md and documentation in docs/src/components/lint-rules/ and docs/src/content/docs/lint-rules/.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/bloc_lint/lib/src/rules/*.dart, packages/bloc_lint/lib/src/rules/rules.dart, packages/bloc_lint/lib/all.yaml
+
+---
+id: bloc-workflow-dependency-bump-via-dependabot
+trigger: "when doing dependency bump via dependabot"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Dependency Bump Via Dependabot
+
+## Action
+
+Follow the dependency-bump-via-dependabot workflow:
+1. Update package.json and/or package-lock.json (or other lock/config files).
+2. Commit with a message referencing the dependency and version bump.
+3. Merge after CI passes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: docs/package.json, docs/package-lock.json, extensions/vscode/package.json
+
+---
+id: bloc-workflow-example-app-addition-or-major-update
+trigger: "when doing example app addition or major update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Example App Addition Or Major Update
+
+## Action
+
+Follow the example-app-addition-or-major-update workflow:
+1. Create or update multiple files under examples/ (including Dart, assets, configs).
+2. Update or add README.md for the example.
+3. Add or update pubspec.yaml and other config files.
+4. Add assets (images, gifs, icons) if needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: examples/*/README.md, examples/*/pubspec.yaml, examples/*/pubspec.lock
+
+---
+id: bloc-workflow-update-extension-to-use-latest-bloc-tools
+trigger: "when doing update extension to use latest bloc tools"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/bloc
+---
+
+# Bloc Workflow Update Extension To Use Latest Bloc Tools
+
+## Action
+
+Follow the update-extension-to-use-latest-bloc-tools workflow:
+1. Update bloc_tools version in extension source/config files.
+2. Update package-lock.json or build.gradle.kts as needed.
+3. Update plugin.xml (IntelliJ) or install-bloc-tools.ts (VSCode) if necessary.
+4. Optionally update CHANGELOG.md.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: extensions/vscode/package-lock.json, extensions/vscode/package.json, extensions/vscode/src/utils/install-bloc-tools.ts
+
+---
+id: bloc-instinct-file-naming-camelcase
+trigger: "When creating a new file"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct File Naming Camelcase
+
+## Action
+
+Name the file using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files = camelCase
+
+---
+id: bloc-instinct-function-naming-camelcase
+trigger: "When defining a new function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Function Naming Camelcase
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions = camelCase
+
+---
+id: bloc-instinct-class-naming-pascalcase
+trigger: "When defining a new class"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Class Naming Pascalcase
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes = PascalCase
+
+---
+id: bloc-instinct-constant-naming-screaming-snake
+trigger: "When defining a constant"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Constant Naming Screaming Snake
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants = SCREAMING_SNAKE_CASE
+
+---
+id: bloc-instinct-import-style-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Import Style Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle = relative
+
+---
+id: bloc-instinct-export-style-named
+trigger: "When exporting modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Export Style Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle = named
+
+---
+id: bloc-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Test File Pattern
+
+## Action
+
+Name the file with a .test.ts suffix
+
+## Evidence
+
+- Pattern in testing.filePattern = *.test.ts
+
+---
+id: bloc-instinct-test-type-unit
+trigger: "When writing tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Test Type Unit
+
+## Action
+
+Write unit tests
+
+## Evidence
+
+- Pattern in testing.testTypes includes unit
+
+---
+id: bloc-instinct-commit-conventional-format
+trigger: "When making a commit"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Commit Conventional Format
+
+## Action
+
+Format the commit message as <type>(<scope>): <description>
+
+## Evidence
+
+- Seen in commit: fix(hydrated_bloc): make `defaultOnHydrationError` public
+- Pattern in commits.prefixes: chore, refactor, docs, feat, fix
+
+---
+id: bloc-instinct-commit-average-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Commit Average Length
+
+## Action
+
+Keep the commit message around 50 characters
+
+## Evidence
+
+- Pattern in commits.averageLength = 51
+
+---
+id: bloc-instinct-package-release-version-bump
+trigger: "When releasing a new version of a package"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Package Release Version Bump
+
+## Action
+
+Update CHANGELOG.md, pubspec.yaml/package.json/build.gradle.kts, and optionally README.md/version.dart
+
+## Evidence
+
+- Workflow: package-release-version-bump
+- Files: packages/*/CHANGELOG.md, packages/*/pubspec.yaml, etc.
+
+---
+id: bloc-instinct-add-or-update-lint-rule
+trigger: "When adding or updating a lint rule in bloc_lint"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Add Or Update Lint Rule
+
+## Action
+
+Implement or update rule in lib/src/rules/, update configs, add tests, and update documentation
+
+## Evidence
+
+- Workflow: add-or-update-lint-rule
+- Files: packages/bloc_lint/lib/src/rules/*.dart, .../test/src/rules/*_test.dart, docs/src/components/lint-rules/*/
+
+---
+id: bloc-instinct-dependency-bump-via-dependabot
+trigger: "When Dependabot creates a PR for a dependency update"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Dependency Bump Via Dependabot
+
+## Action
+
+Update package.json and/or package-lock.json, commit with reference to dependency and version, merge after CI passes
+
+## Evidence
+
+- Workflow: dependency-bump-via-dependabot
+- Files: docs/package.json, extensions/vscode/package.json, etc.
+
+---
+id: bloc-instinct-example-app-addition-or-major-update
+trigger: "When adding a new example app or making a major update to an existing one"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Example App Addition Or Major Update
+
+## Action
+
+Update/create files under examples/, update README.md, pubspec.yaml, and add assets if needed
+
+## Evidence
+
+- Workflow: example-app-addition-or-major-update
+- Files: examples/*/README.md, examples/*/lib/**/*.dart, etc.
+
+---
+id: bloc-instinct-update-extension-bloc-tools
+trigger: "When bloc_tools is updated and extensions need to use the new version"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/bloc
+---
+
+# Bloc Instinct Update Extension Bloc Tools
+
+## Action
+
+Update bloc_tools version in extension config/source files, update lock/config files, and optionally update CHANGELOG.md
+
+## Evidence
+
+- Workflow: update-extension-to-use-latest-bloc-tools
+- Files: extensions/vscode/package.json, extensions/intellij/intellij_generator_plugin/build.gradle.kts, etc.
+
